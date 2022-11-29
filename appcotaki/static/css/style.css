@@ -38,7 +38,7 @@ html {
 
 body {
     color: #666666;
-    font-size: 14px;
+    font-size: 18px;
     font-family: Raleway;
     line-height: 1.80857;
     font-weight: normal;
@@ -222,7 +222,7 @@ button {
 .header_section {
     width: 100%;
     float: left;
-    background-color: #e05306;
+    background-color: #000000;
     height: auto;
     padding-top: 15px;
     padding-bottom: 5px;
@@ -253,7 +253,7 @@ button {
 .banner_section {
     width: 100%;
     float: left;
-    background-color: #e05306;
+    background-color: #000000;
     height: auto;
 }
 
@@ -445,7 +445,7 @@ button {
     font-size: 16px;
     color: #ffffff;
     border-radius: 5px;
-    background-color: #e05306;
+    background-color: #000000;
     height: 50px;
     font-weight: bold;
     margin-top: 40px;
@@ -456,7 +456,7 @@ button {
 
 .about_bt a {
     color: #ffffff;
-    background-color: #e05306;
+    background-color: #000000;
 }
 
 .about_bt a:hover {
@@ -537,7 +537,7 @@ button {
 .choose_bt a {
     width: 18%;
     float: left;
-    background-color: #041d2c;
+    background-color: #fbff00;
     color: #fffcf4;
     height: 50px;
     font-size: 17px;
@@ -548,7 +548,7 @@ button {
 
 .choose_bt a {
     color: #ffffff;
-    background-color: #041d2c;
+    background-color: #fffb00;
 }
 
 .choose_bt a:hover {
@@ -570,7 +570,7 @@ button {
     text-align: center;
     font-size: 40px;
     color: #0b0e13;
-    border-bottom: 1px solid #e05306;
+    border-bottom: 1px solid #000000;
     text-align: center;
 }
 
@@ -579,7 +579,7 @@ button {
     font-size: 20px;
     color: #fffcf4;
     border-radius: 5px;
-    background-color: #041d2c;
+    background-color: #fbff00;
     height: 50px;
     margin-top: 40px;
     padding-top: 7px;
@@ -589,12 +589,12 @@ button {
 
 .seemore_bt a {
     color: #fffcf4;
-    background-color: #041d2c;
+    background-color: #fbff00;
 }
 
 .seemore_bt a:hover {
     color: #fffcf4;
-    background-color: #e05306;
+    background-color: #000000;
 }
 
 .padding_top_0 {
@@ -642,7 +642,7 @@ button {
 .henrry_taital {
     width: 100%;
     float: left;
-    color: #e07c06;
+    color: #000000;
     text-align: center;
     font-size: 18px;
     margin-left: 0px;
@@ -668,7 +668,7 @@ button {
 .contact_section {
     width: 100%;
     float: left;
-    background-color: #e05306;
+    background-color: #000000;
     height: auto;
 }
 
@@ -688,7 +688,7 @@ button {
     float: left;
     font-size: 30px;
     color: #fffcf4;
-    border-bottom: 0px solid#49bcfe;
+    border-bottom: 0px solid#e5ff00;
     padding-top: 20PX;
 }
 
@@ -730,7 +730,7 @@ textarea#comment.massage-bt::placeholder {
 .send_bt a {
     width: 30%;
     float: left;
-    background-color: #041d2c;
+    background-color: #fbff00;
     color: #fffdf6;
     text-align: center;
     padding: 12px 0px;
@@ -741,7 +741,7 @@ textarea#comment.massage-bt::placeholder {
 
 .send_bt a {
     color: #fffdf6;
-    background-color: #041d2c;
+    background-color: #fbff00;
 }
 
 .send_bt a:hover {
@@ -752,7 +752,7 @@ textarea#comment.massage-bt::placeholder {
 .footer_section {
     width: 100%;
     float: left;
-    background-color: #1c1d1d;
+    background-color: #000000;
     height: auto;
     margin-top: 80px;
     padding-bottom: 80px;
@@ -766,7 +766,7 @@ textarea#comment.massage-bt::placeholder {
 .input-group>.input-group-prepend:not(:first-child)>.input-group-text {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    background-color: #e05306;
+    background-color: #000000;
     color: #fff;
     border: 0px;
 }
@@ -842,13 +842,13 @@ textarea#comment.massage-bt::placeholder {
 .copyright_section {
     width: 100%;
     float: left;
-    background-color: #e05306;
+    background-color: #000000;
 }
 
 .copyright_text {
     width: 100%;
     float: left;
-    font-size: 14pt;
+    font-size: 18pt;
     color: #ffffff;
     text-align: center;
 }
@@ -877,7 +877,7 @@ textarea#comment.massage-bt::placeholder {
     width: 100%;
     opacity: 0;
     transition: .5s ease;
-    background-color: #008CBA;
+    background-color: #eeff00;
 }
 
 .container:hover .overlay {
