@@ -1,0 +1,316 @@
+{% load static %}
+
+{% csrf_token %}
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <style>
+         html{
+           scroll-behavior: smooth;
+         }
+      </style>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>CotAki!</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- bootstrap css -->
+      <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+      <!-- style css -->
+      <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+      <!-- Responsive-->
+      <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+      <!-- fevicon -->
+      <link rel="icon" href="{% static 'img/fevicon.png' %}" type="image/gif" />
+      <!-- Scrollbar Custom CSS -->
+      <link rel="stylesheet" href="{% static 'css/jquery.mCustomScrollbar.min.css' %}">
+      <!-- Tweaks for older IEs-->
+      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+      <!-- owl stylesheets --> 
+      <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+      <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+   </head>
+   <body>
+      <!-- section header start -->
+      <div class="header_section">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-3">
+                  <div class="logo"><a href="index.html"><img src="{% static 'img/logo.png' %}"></a></div>
+               </div>
+               <div class="col-md-9">
+                  <div class="menu_text">
+                     <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="#about">Sobre</a></li>
+                        <li><a href="#clients">Clientes</a></li>
+                        <li><a href="#contact">Contato</a></li>
+                        <div id="myNav" class="overlay">
+                           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                           <div class="overlay-content">
+                              <a href="index.html">Clientes</a>
+                              <a href="about.html">Fabricantes</a>
+                              <a href="services.html">Materiais</a>
+                              <a href="projects.html">Comissões</a>
+                              <a href="contact.html">Cotações</a>
+                              <a href="client.html">Pedidos</a>
+                           </div>
+                        </div>
+                        <span  style="font-size:33px;cursor:pointer; color: #ffffff;" onclick="openNav()"><img src="{% static 'img/toggle.png' %}" class="toggle_menu"></span>
+                  </div>
+                  </li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- section header end -->
+      <!-- banner section start -->
+      <div class="banner_section">
+         <div class="container-fluid">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+               <div class="carousel-inner">
+                  <div class="carousel-item active">
+                     <div class="row">
+                        <div class="col-sm-2">
+                           <div class="round"><img src="{% static 'img/round-icon.png' %}"></div>
+                           <p class="number_text">02</p>
+                           <div class="line"><img src="{% static 'img/line.png' %}"></div>
+                           <p class="number_text">02</p>
+                           <div class="round"><img src="{% static 'img/round-icon.png' %}"></div>
+                        </div>
+                        <div class="col-sm-5">
+                           <div class="taital_main">
+                              <h2 class="construction_text">Cotações</h2>
+                              <h1 class="building_text">Pedidos</h1>
+                              <p class="lorem_text">Nossa solução permite o cadastramento de dados, elaboração de cotações comerciais e abertura de pedidos por meio de uma interface de alto contraste colaborando com a inclusão dos que necessitam de recursos de acessibilidade.</p>
+                           </div>
+                        </div>
+                        <div class="col-sm-5">
+                           <div><img src="{% static 'img/banner-bg.png' %}"></div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="carousel-item">
+                     <div class="row">
+                        <div class="col-sm-2">
+                           <div class="round"><img src="{% static 'img/round-icon.png' %}"></div>
+                           <p class="number_text">02</p>
+                           <div class="line"><img src="{% static 'img/line.png' %}"></div>
+                           <p class="number_text">02</p>
+                           <div class="round"><img src="{% static 'img/round-icon.png' %}"></div>
+                        </div>
+                        <div class="col-sm-5">
+                           <div class="taital_main">
+                              <h2 class="construction_text">Pedidos</h2>
+                              <h1 class="building_text">Cotações</h1>
+                              <p class="lorem_text">Os pedidos podem ser originados a partir de cotações cadastradas reduzindo a redundância de dados e diminuindo o trabalho de digitação. </p>
+                           </div>
+                        </div>
+                        <div class="col-sm-5">
+                           <div><img src="{% static 'img/banner-bg.png' %}"></div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="carousel-item">
+                     <div class="row">
+                        <div class="col-sm-2">
+                           <div class="round"><img src="{% static 'img/round-icon.png' %}"></div>
+                           <p class="number_text">02</p>
+                           <div class="line"><img src="{% static 'img/line.png' %}"></div>
+                           <p class="number_text">02</p>
+                           <div class="round"><img src="{% static 'img/round-icon.png' %}"></div>
+                        </div>
+                        <div class="col-sm-5">
+                           <div class="taital_main">
+                              <h2 class="construction_text">Cotações</h2>
+                              <h1 class="building_text">Consultas</h1>
+                              <p class="lorem_text">Cadastre seus itens e demais dados para utilizá-los nas cotações e pedidos de itens, além de consultar a qualquer momento todos os seus dados. </p>
+                           </div>
+                        </div>
+                        <div class="col-sm-5">
+                           <div><img src="{% static 'img/banner-bg.png' %}"></div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+               <span class="sr-only">Previous</span>
+               </a>
+               <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+               <span class="carousel-control-next-icon" aria-hidden="true"></span>
+               <span class="sr-only">Next</span>
+               </a>
+            </div>
+         </div>
+      </div>
+      <!-- banner section end -->
+      <!-- about section start -->
+      <div class="about_section" id="about">
+         <div class="container-fluid">
+            <div class="row">
+               <div class="col-md-6">
+                  <div class="about_taital">
+                     <h1 class="about_text">Sobre a solução</h1>
+                     <p class="long_text">Trata-se de algo simples e diretor proporcionando, sem complicações, que você possa inserir e consultar seus dados. Chega de soluções complexas e que tomam seu tempo forçando você a inserir informações desnecessárias. Escolha uma solução simples e rápida que atenderá suas necessidades e te dará o retorno esperado no curto prazo. </p>
+                  </div>
+               </div>
+               <div class="col-md-6 padding_0">
+                  <div class="about_img"><img src="{% static 'img/about-bg.png' %}"></div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- about section end -->
+ 
+      <!-- client section start -->
+      <div class="clients_section layout_padding" id="clients">
+         <div class="container">
+            <h1 class="client_text"><strong>O que as pessoas estão dizendo?</strong></h1>
+            <p class="client_long_text">Veja o que as pessoas estão dizendo sobre soluções de cotação e cadastros de pedidos... </p>
+            <div class="clients_section_2">
+               <div id="my_carousel" class="carousel slide" data-ride="carousel">
+                  <ol class="carousel-indicators">
+                     <li data-target="#my_carousel" data-slide-to="0" class="active"></li>
+                     <li data-target="#my_carousel" data-slide-to="1"></li>
+                     <li data-target="#my_carousel" data-slide-to="2"></li>
+                  </ol>
+                  <div class="carousel-inner">
+                     <div class="carousel-item active">
+                        <div class="row">
+                           <div class="col-sm-12 col-lg-2">
+                              <div class="client_img"><img src="{% static 'img/client-img.png' %}"></div>
+                              <h2 class="henrry_text">Manoel Souza</h2>
+                           </div>
+                           <div class="col-sm-12 col-lg-10">
+                              <div class="img_5"><img src="{% static 'img/img-6.png' %}"></div>
+                              <p class="client_lorem_text">Estou cansado de procurar uma solução em que eu não seja obrigado a digitar tanta informação que não vou utilizar só porque isso é exigido pelo sofware e foi assim que ele foi desenvolvido. Chega de desculpas, encontrei a solução certa com o CotAki!</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="carousel-item">
+                        <div class="row">
+                           <div class="col-sm-12 col-lg-2">
+                              <div class="client_img"><img src="{% static 'img/client-img2.png' %}"></div>
+                              <h2 class="henrry_text">Joana Silva</h2>
+                           </div>
+                           <div class="col-sm-12 col-lg-10">
+                              <div class="img_5"><img src="{% static 'img/img-6.png' %}"></div>
+                              <p class="client_lorem_text">Me livrei dos papéis, abandonei minhas anotações de cotações e pedidos e agora utilizo a solução CotAki! Fantástico, otimizo o meu tempo e consigo me dedicar mais ao gerenciamento do meu negócio!</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- client section end -->
+      <!-- contact section start -->
+      <div class="contact_section">
+         <div class="container-fluid">
+            <div class="row">
+               <div class="col-md-6">
+                  <div class="contact_bg">
+                     <div class="input_main">
+                        <div class="container">
+                           <h2 class="request_text">Conheça a UNIVESP Cerquilho</h2>
+                           <p class="long_text">Criada em 2012 como Fundação, somos uma instituição de Ensino Superior mantida pelo Governo do Estado de São Paulo, e vinculada a Secretaria de Desenvolvimento. Acreditamos na EAD como um importante recurso de transformação da sociedade pela sua agilidade para responder às novas demandas que surgem a cada dia.</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-6 padding_0">
+                  <div class="map-responsive">
+                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3668.1306737990794!2d-47.74943638536587!3d-23.16543035297415!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c60dc82cf91da7%3A0x25b52b4f86576a63!2sUNIVESP!5e0!3m2!1spt-BR!2sbr!4v1669686424559!5m2!1spt-BR!2sbr" width="600" height="450" frameborder="0" style="border:0; width: 100%;" allowfullscreen></iframe>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- contact section end -->
+      <!-- footer section start -->
+      <div class="footer_section layout_padding" id="contact">
+         <div class="container">
+         </div>
+         <div class="footer_section_2">
+            <div class="container">
+               <h2 class="addres_text">Contato</h2>
+               <div class="row map_addres">
+                  <div class="col-sm-12 col-lg-4">
+                     <div class="map_text"><img src="{% static 'img/map-icon.png' %}"><span class="map_icon">Em breve</span></div>
+                  </div>
+                  <div class="col-sm-12 col-lg-4">
+                     <div class="map_text"><img src="{% static 'img/phone-icon.png' %}"><span class="map_icon">Em breve</span></div>
+                  </div>
+                  <div class="col-sm-12 col-lg-4">
+                     <div class="map_text"><img src="{% static 'img/email-icon.png' %}"><span class="map_icon">Em breve</span></div>
+                  </div>
+               </div>
+               <div class="social_icon">
+                  <ul>
+                     <li><a href="#"><img src="{% static 'img/fb-icon.png' %}"></a></li>
+                     <li><a href="#"><img src="{% static 'img/twitter-icon.png' %}"></a></li>
+                     <li><a href="#"><img src="{% static 'img/in-icon.png' %}"></a></li>
+                     <li><a href="#"><img src="{% static 'img/instagram-icon.png' %}"></a></li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- footer section end -->
+      <!-- copyright section start -->
+      <div class="copyright_section">
+         <p class="copyright_text">CotAki é um site elaborado pelos alunos da Universidade Virtual do Estado de São Paulo<a href="https://univesp.br"> Univesp.BR</p>
+      </div>
+      <!-- copyright section end -->
+      <!-- Javascript files-->
+      <script src="{% static 'js/jquery.min.js' %}"></script>
+      <script src="{% static 'js/popper.min.js' %}"></script>
+      <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+      <script src="{% static 'js/jquery-3.0.0.min.js' %}"></script>
+      <script src="{% static 'js/plugin.js' %}"></script>
+      <!-- sidebar -->
+      <script src="{% static 'js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+      <script src="{% static 'js/custom.js' %}"></script>
+      <!-- javascript --> 
+      <script src="{% static 'js/owl.carousel.js' %}"></script>
+      <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+      <script>
+         $(document).ready(function(){
+         $(".fancybox").fancybox({
+            openEffect: "none",
+            closeEffect: "none"
+            });
+            
+            $(".zoom").hover(function(){
+            
+            $(this).addClass('transition');
+            }, function(){
+            
+            $(this).removeClass('transition');
+            });
+            });
+            
+      </script> 
+      <script>
+         function openNav() {
+         document.getElementById("myNav").style.width = "100%";
+         }
+         
+         function closeNav() {
+         document.getElementById("myNav").style.width = "0%";
+         }
+      </script>
+   </body>
+</html>

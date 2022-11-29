@@ -4,21 +4,19 @@ from django.db import models
 
 
 class Materiais(models.Model):
-    codigo = models.AutoField(
-        auto_created=True, primary_key=True, serialize=False, verbose_name='Codigo')
-    nome = models.CharField(max_length=200)
+    nome = models.CharField(max_length=200, primary_key='true')
     um = models.CharField(max_length=10)
     precoUnit = models.DecimalField(max_digits=15, decimal_places=2)
 
     class Meta:
         constraints = [
-            models.UniqueConstraint(fields=['codigo'], name='materiais_unique')
+            models.UniqueConstraint(fields=['nome'], name='materiais_unique')
         ]
 
 
 class Fabricantes(models.Model):
     codigo = models.AutoField(
-        auto_created=True, primary_key=True, serialize=False, verbose_name='Codigo')
+        auto_created=True, primary_key=True, serialize=False, verbose_name='Codigo', default=1)
     nome = models.CharField(max_length=200)
     produto = models.CharField(max_length=200)
 
@@ -30,36 +28,70 @@ class Fabricantes(models.Model):
 
 
 class Clientes(models.Model):
-    codigo = models.AutoField(
-        auto_created=True, primary_key=True, serialize=False, verbose_name='Codigo')
-    nome = models.CharField(max_length=200)
+    nome = models.CharField(max_length=200, primary_key='true')
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=['nome'], name='clientes_unique')
+        ]
 
 
 class Comissoes(models.Model):
+    percentual = models.DecimalField(
+        max_digits=15, decimal_places=2, default=0)
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=['percentual'], name='comissoes_unique')
+        ]
+
+
+class Cotacoes(models.Model):
     codigo = models.AutoField(
         auto_created=True, primary_key=True, serialize=False, verbose_name='Codigo')
-    percentual = models.DecimalField(max_digits=15, decimal_places=2)
+    numCotacao = models.IntegerField(default=0)
+    data = models.DateField()
+    nomeFabricante = models.ForeignKey(
+        Fabricantes, related_name='fabricante', on_delete=models.CASCADE)
+    tipoMaterial = models.ForeignKey(
+        Materiais, related_name='tipomateriais', on_delete=models.CASCADE)
+    umMaterial = models.CharField(max_length=10)
+    qtdMaterial = models.DecimalField(max_digits=15, decimal_places=2)
+    statusCotacao = models.CharField(max_length=10, default='Em análise')
+    motivoReprovacao = models.CharField(max_length=200)
+    nomCliente = models.ForeignKey(
+        Clientes, related_name='cotacaoclientes', on_delete=models.CASCADE, default=1)
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=['codigo'], name='cotacoes_unique')
+        ]
 
 
 class Pedidos(models.Model):
-    numPedido = models.AutoField(
-        auto_created=True, primary_key=True, serialize=False, verbose_name='Numero')
+    codigo = models.AutoField(
+        auto_created=True, primary_key=True, serialize=False, verbose_name='Codigo')
+    numPedido = models.IntegerField(default=0)
     data = models.DateField()
-    nomeFabricante = models.CharField(max_length=200)
-    tipoMaterial = models.CharField(max_length=200)
+    nomeFabricante = models.ForeignKey(
+        Fabricantes, related_name='fabricantes', on_delete=models.CASCADE)
+    tipoMaterial = models.ForeignKey(
+        Materiais, related_name='materiais', on_delete=models.CASCADE)
     umMaterial = models.CharField(max_length=10)
     qtdMaterial = models.DecimalField(max_digits=15, decimal_places=2)
     precoUnitMaterial = models.DecimalField(max_digits=15, decimal_places=2)
     precoTotalMaterial = models.DecimalField(max_digits=15, decimal_places=2)
-    statusPedido = (
-        ('A', 'Aprovado'),
-        ('R', 'Reprovado'),
-        ('E', 'Em análise'),
-    )
+    statusPedido = models.CharField(max_length=10, default='Em análise')
     motivoReprovacao = models.CharField(max_length=200)
-    numCotacao = models.IntegerField()
-    nomCliente = models.CharField(max_length=200)
-    percComissao = models.DecimalField(max_digits=15, decimal_places=2)
+    numCotacao = models.ForeignKey(
+        Cotacoes, related_name='cotacoes', on_delete=models.CASCADE)
+    nomCliente = models.ForeignKey(
+        Clientes, related_name='clientes', on_delete=models.CASCADE)
+    percComissao = models.ForeignKey(
+        Comissoes, related_name='comissoes', on_delete=models.CASCADE)
     valorComissao = models.DecimalField(max_digits=15, decimal_places=2)
     valorA = models.DecimalField(max_digits=15, decimal_places=2)
     dataA30 = models.DateField()
@@ -71,27 +103,5 @@ class Pedidos(models.Model):
     class Meta:
         constraints = [
             models.UniqueConstraint(
-                fields=['numPedido'], name='pedidos_unique')
-        ]
-
-
-class Cotacoes(models.Model):
-    numCotacao = models.AutoField(
-        auto_created=True, primary_key=True, serialize=False, verbose_name='Numero')
-    data = models.DateField()
-    nomeFabricante = models.CharField(max_length=200)
-    tipoMaterial = models.CharField(max_length=200)
-    umMaterial = models.CharField(max_length=10)
-    qtdMaterial = models.DecimalField(max_digits=15, decimal_places=2)
-    statusCotacao = (
-        ('A', 'Aprovado'),
-        ('R', 'Reprovado'),
-        ('E', 'Em análise'),
-    )
-    motivoReprovacao = models.CharField(max_length=200)
-
-    class Meta:
-        constraints = [
-            models.UniqueConstraint(
-                fields=['numCotacao'], name='cotacoes_unique')
+                fields=['codigo'], name='pedidos_unique')
         ]
