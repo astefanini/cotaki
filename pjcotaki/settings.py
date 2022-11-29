@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-=hmcdy0f#fnu+9%+e%f0@i(-(aff4*xm4(@@rjf^a3lq8%0tq0'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -130,7 +130,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-DISABLE_COLLECTSTATIC = 1
 STATIC_URL = 'static/'
 STATIC_ROOT = 'staticfiles'
 
