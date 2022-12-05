@@ -16,7 +16,7 @@ class Materiais(models.Model):
 
 class Fabricantes(models.Model):
     codigo = models.AutoField(
-        auto_created=True, primary_key=True, serialize=False, verbose_name='Codigo', default=1)
+        auto_created=True, primary_key=True, serialize=False, verbose_name='Codigo')
     nome = models.CharField(max_length=200)
     produto = models.CharField(max_length=200)
 

@@ -79,12 +79,12 @@
                   <div class="contact_bg">
                      <div class="input_main">
                         <div class="container">
-                           <h2 class="request_text">Lista de Clientes</h2>
+                           <h2 class="request_text">Lista de Fabricantes</h2>
                            <form class="needs-validation" novalidate method="post">
 
                               {% csrf_token %}
 
-                              {% if cliente_list|length > 0 %}
+                              {% if fabricante_list|length > 0 %}
                           
                               <div class="table-responsive">
                                   <table class="table">
@@ -92,22 +92,14 @@
                                           <thead>
                                               <tr>
                                                   <td> Nome </td>
+                                                  <td> Produto </td>
                                               </tr>
                                           </thead>
                           
-                                          {% for clientes in cliente_list %}
+                                          {% for fabricantes in fabricante_list %}
                                           <tr>
-                                              <td> {{ clientes.nome }} </td>
-                                              <td>
-                                                  <div class="d-flex justify-content-center justify-content-lg-start">
-                                                  <a href="cotacao_cliente_list/{{ clientes.nome }}" class="btn-get-started scrollto">Ver Cotações</a>
-                                                  </div>
-                                              </td>
-                                              <td>
-                                                  <div class="d-flex justify-content-center justify-content-lg-start">
-                                                  <a href="pedido_cliente_list/{{ clientes.nome }}" class="btn-get-started scrollto">Ver Pedidos</a>
-                                                  </div>
-                                              </td>                        
+                                              <td> {{ fabricantes.nome }} </td>
+                                              <td> {{ fabricantes.produto }} </td>                                              
                                           </tr>
                                           {% endfor %}
                                       </tbody>
@@ -118,7 +110,7 @@
                               
                               <br>
                               <br>
-                              <center><h4>Não há clientes cadastrados!</h4></center>
+                              <center><h4>Não há fabricantes cadastrados!</h4></center>
                               
                               {% endif %}
 

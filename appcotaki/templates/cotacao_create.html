@@ -48,7 +48,9 @@
                <div class="col-md-9">
                   <div class="menu_text">
                      <ul>
-                        <li><a href="/">Início</a></li>
+                        <li><a href="#">Início</a></li>
+                        <li><a href="#about">Sobre</a></li>
+                        <li><a href="#clients">Clientes</a></li>
                         <li><a href="#contact">Contato</a></li>
                         <div id="myNav" class="overlay">
                            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -71,7 +73,7 @@
       </div>
       <!-- section header end -->
 
-      <!-- contact section start -->
+      <!-- client create section start -->
       <div class="contact_section">
          <div class="container-fluid">
             <div class="row">
@@ -79,61 +81,26 @@
                   <div class="contact_bg">
                      <div class="input_main">
                         <div class="container">
-                           <h2 class="request_text">Lista de Clientes</h2>
+                           <h2 class="request_text">Cadastro de Cotação</h2>
                            <form class="needs-validation" novalidate method="post">
 
                               {% csrf_token %}
-
-                              {% if cliente_list|length > 0 %}
-                          
-                              <div class="table-responsive">
-                                  <table class="table">
-                                      <tbody>
-                                          <thead>
-                                              <tr>
-                                                  <td> Nome </td>
-                                              </tr>
-                                          </thead>
-                          
-                                          {% for clientes in cliente_list %}
-                                          <tr>
-                                              <td> {{ clientes.nome }} </td>
-                                              <td>
-                                                  <div class="d-flex justify-content-center justify-content-lg-start">
-                                                  <a href="cotacao_cliente_list/{{ clientes.nome }}" class="btn-get-started scrollto">Ver Cotações</a>
-                                                  </div>
-                                              </td>
-                                              <td>
-                                                  <div class="d-flex justify-content-center justify-content-lg-start">
-                                                  <a href="pedido_cliente_list/{{ clientes.nome }}" class="btn-get-started scrollto">Ver Pedidos</a>
-                                                  </div>
-                                              </td>                        
-                                          </tr>
-                                          {% endfor %}
-                                      </tbody>
-                                  </table>
+                              
+                              <div class="form-group">
+                                 {{ form.as_table }}
                               </div>
-                              
-                              {% else %}
-                              
+                              <button class="btn btn-primary btn-lg btn-block" type="submit">Cadastrar</button>
                               <br>
-                              <br>
-                              <center><h4>Não há clientes cadastrados!</h4></center>
-                              
-                              {% endif %}
-
-                              </div>
                            </form>
                         </div>
                      </div>
-                     <br>
-                     <br> 
+                     </div>
                   </div>
                </div>
             </div>
          </div>
       </div>
-      <!-- contact section end -->
+      <!-- client create section end -->
 
       <!-- footer section start -->
       <div class="footer_section layout_padding" id="contact">

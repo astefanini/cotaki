@@ -7,7 +7,36 @@
          html{
            scroll-behavior: smooth;
          }
+         table {
+            width:  150%;
+            border-collapse: collapse;
+         }
+         td {
+            border: 1px solid black;
+         }
+         .scrollingTable {
+            width: 30em;
+            overflow-y: auto;
+         }   
       </style>
+      <script type="text/javascript">
+         function makeTableScroll() {
+             // Constant retrieved from server-side via JSP
+             var maxRows = 5;
+ 
+             var table = document.getElementById('myTable');
+             var wrapper = table.parentNode;
+             var rowsInTable = table.rows.length;
+             var height = 0;
+             if (rowsInTable > maxRows) {
+                 for (var i = 0; i < maxRows; i++) {
+                     height += table.rows[i].clientHeight;
+                 }
+                 wrapper.style.height = height + "px";
+             }
+         }
+     </script>      
+
       <!-- basic -->
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -37,7 +66,7 @@
       <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
    </head>
-   <body>
+   <body onload="makeTableScroll();">
       <!-- section header start -->
       <div class="header_section">
          <div class="container">
@@ -75,59 +104,77 @@
       <div class="contact_section">
          <div class="container-fluid">
             <div class="row">
-               <div class="col-md-6">
-                  <div class="contact_bg">
-                     <div class="input_main">
-                        <div class="container">
-                           <h2 class="request_text">Lista de Clientes</h2>
-                           <form class="needs-validation" novalidate method="post">
+               <div class="input_main">
+                  <div class="container">
+                     <h2 class="request_text">Lista de Pedidos do Cliente</h2>
 
-                              {% csrf_token %}
+                        {% csrf_token %}
 
-                              {% if cliente_list|length > 0 %}
+                        {% if pedidos_list|length > 0 %}
                           
-                              <div class="table-responsive">
-                                  <table class="table">
-                                      <tbody>
-                                          <thead>
-                                              <tr>
-                                                  <td> Nome </td>
-                                              </tr>
-                                          </thead>
-                          
-                                          {% for clientes in cliente_list %}
-                                          <tr>
-                                              <td> {{ clientes.nome }} </td>
-                                              <td>
-                                                  <div class="d-flex justify-content-center justify-content-lg-start">
-                                                  <a href="cotacao_cliente_list/{{ clientes.nome }}" class="btn-get-started scrollto">Ver Cotações</a>
-                                                  </div>
-                                              </td>
-                                              <td>
-                                                  <div class="d-flex justify-content-center justify-content-lg-start">
-                                                  <a href="pedido_cliente_list/{{ clientes.nome }}" class="btn-get-started scrollto">Ver Pedidos</a>
-                                                  </div>
-                                              </td>                        
-                                          </tr>
-                                          {% endfor %}
-                                      </tbody>
-                                  </table>
-                              </div>
-                              
-                              {% else %}
-                              
-                              <br>
-                              <br>
-                              <center><h4>Não há clientes cadastrados!</h4></center>
-                              
-                              {% endif %}
-
-                              </div>
-                           </form>
+                        <div class="table-responsive">
+                            <table id="myTable" >
+                                <tbody>
+                                    <thead>
+                                        <tr>
+                                            <td> Num. </td>
+                                            <td> Data </td>
+                                            <td> Fab. </td>                                                  
+                                            <td> Material </td>
+                                            <td> UM </td>
+                                            <td> Qtd. </td>
+                                            <td> Pr. Unit. </td>
+                                            <td> Pr. Total </td>                                                                                                                                                                                                        
+                                            <td> Status Pedido </td>                                                                                                    
+                                            <td> Mot. rep. </td>
+                                            <td> Num. Cot. </td>
+                                            <td> Cliente </td>
+                                            <td> P. Com. </td>
+                                            <td> V. Com. </td>
+                                            <td> V. A </td>
+                                            <td> Dt. 30 </td>
+                                            <td> V. B </td>
+                                            <td> Dt. 60 </td>
+                                            <td> V. C </td>
+                                            <td> Dt. 90 </td>                                                                                                                                                      
+                                        </tr>
+                                    </thead>
+                    
+                                     {% for pedidos in pedidos_list %}
+                                     <tr>
+                                        <td> {{ pedidos.numPedido }} </td>
+                                        <td> {{ pedidos.data }} </td>
+                                        <td> {{ pedidos.nomeFabricante.nome }} </td>
+                                        <td> {{ pedidos.tipoMaterial_id }} </td>
+                                        <td> {{ pedidos.umMaterial }} </td> 
+                                        <td> {{ pedidos.qtdMaterial }} </td>
+                                        <td> {{ pedidos.precoUnitMaterial }} </td>
+                                        <td> {{ pedidos.precoTotalMaterial }} </td>
+                                        <td> {{ pedidos.statusPedido }} </td>
+                                        <td> {{ pedidos.motivoReprovacao }} </td>
+                                        <td> {{ pedidos.numCotacao_id }} </td>
+                                        <td> {{ pedidos.nomCliente_id }} </td>
+                                        <td> {{ pedidos.percComissao.percentual }} </td>
+                                        <td> {{ pedidos.valorComissao }} </td>
+                                        <td> {{ pedidos.valorA }} </td>
+                                        <td> {{ pedidos.dataA30 }} </td>
+                                        <td> {{ pedidos.valorB }} </td>
+                                        <td> {{ pedidos.dataB60 }} </td>
+                                        <td> {{ pedidos.valorC }} </td>
+                                        <td> {{ pedidos.dataC90 }} </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
                         </div>
+                              
+                        {% else %}
+                        
+                        <center><h4>Não há clientes cadastrados!</h4></center>
+                        
+                        {% endif %}
+
                      </div>
-                     <br>
-                     <br> 
                   </div>
                </div>
             </div>

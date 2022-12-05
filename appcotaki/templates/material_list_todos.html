@@ -79,12 +79,12 @@
                   <div class="contact_bg">
                      <div class="input_main">
                         <div class="container">
-                           <h2 class="request_text">Lista de Clientes</h2>
+                           <h2 class="request_text">Lista de Materiais</h2>
                            <form class="needs-validation" novalidate method="post">
 
                               {% csrf_token %}
 
-                              {% if cliente_list|length > 0 %}
+                              {% if material_list|length > 0 %}
                           
                               <div class="table-responsive">
                                   <table class="table">
@@ -92,22 +92,16 @@
                                           <thead>
                                               <tr>
                                                   <td> Nome </td>
+                                                  <td> UM </td>
+                                                  <td> Preço Unit. </td>
                                               </tr>
                                           </thead>
                           
-                                          {% for clientes in cliente_list %}
+                                          {% for materiais in material_list %}
                                           <tr>
-                                              <td> {{ clientes.nome }} </td>
-                                              <td>
-                                                  <div class="d-flex justify-content-center justify-content-lg-start">
-                                                  <a href="cotacao_cliente_list/{{ clientes.nome }}" class="btn-get-started scrollto">Ver Cotações</a>
-                                                  </div>
-                                              </td>
-                                              <td>
-                                                  <div class="d-flex justify-content-center justify-content-lg-start">
-                                                  <a href="pedido_cliente_list/{{ clientes.nome }}" class="btn-get-started scrollto">Ver Pedidos</a>
-                                                  </div>
-                                              </td>                        
+                                              <td> {{ materiais.nome }} </td>
+                                              <td> {{ materiais.um }} </td>
+                                              <td> {{ materiais.precoUnit }} </td>                                              
                                           </tr>
                                           {% endfor %}
                                       </tbody>
@@ -118,7 +112,7 @@
                               
                               <br>
                               <br>
-                              <center><h4>Não há clientes cadastrados!</h4></center>
+                              <center><h4>Não há Materiais cadastrados!</h4></center>
                               
                               {% endif %}
 
